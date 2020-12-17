@@ -1,0 +1,313 @@
+.login .logo {
+  max-width: 160px;
+  margin: 0 auto;
+  height: auto;
+}
+.login .logo img {
+  width: 100%;
+  height: 100%;
+}
+.login .userDataInput {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 2.441rem;
+}
+.login .userDataInput h5 {
+  margin-top: 3.052rem;
+  margin-bottom: 1.953rem;
+}
+.login .userDataInput input {
+  font-size: 1.25rem;
+  padding: 1rem;
+  width: 80%;
+}
+.login .userDataInput .operation {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.login .userDataInput .operation input {
+  width: 1rem;
+  height: 1rem;
+  align-self: center;
+}
+.login .userDataInput .operation p {
+  margin-left: 0.5rem;
+}
+.login .userDataInput .operation a {
+  text-decoration: none;
+  margin-left: 3.052rem;
+  font-weight: bold;
+  color: indianred;
+}
+.login .userDataInput .operation span {
+  align-self: center;
+}
+.login .userDataInput .operation div {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+.login .userDataInput .border-right {
+  margin-top: 1.25rem;
+  padding-bottom: 2.441rem;
+}
+.login .userDataInput .loginOverview {
+  margin-top: 2.441rem;
+  padding: 0rem 1rem 1rem 2rem;
+  line-height: 3.052rem;
+  color: grey;
+}
+.login .userDataInput .loginOverview h5 {
+  text-align: end;
+}
+.login .actionButton {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.login .actionButton button {
+  padding: 1rem;
+  background-color: indianred;
+  color: white;
+  width: 60%;
+  justify-self: center;
+  border: none;
+}
+.login .actionButton span {
+  align-self: center;
+  justify-self: center;
+  justify-content: center;
+}
+.login .actionButton span a {
+  color: indianred;
+  text-decoration: none;
+}
+
+.contentLayout {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-areas: "leftside post rightside";
+}
+
+.postContainer {
+  grid-area: post;
+}
+
+.post {
+  margin: 1rem 1rem 2rem 1rem;
+  padding: 1rem;
+  border: 1px solid lightgray;
+}
+
+.ProfilePicturePostContainer a {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  text-decoration: none;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid lightgray;
+}
+.ProfilePicturePostContainer a .UserNamePost {
+  align-self: center;
+  font-weight: bold;
+  margin-left: 1rem;
+  font-size: 1.25rem;
+  color: indianred;
+  font-family: "Montserrat", sans-serif;
+}
+.ProfilePicturePostContainer a .ProfilePicturePost {
+  width: 4rem;
+  height: 4rem;
+  object-fit: cover;
+}
+.ProfilePicturePostContainer a .ProfilePicturePost img {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+}
+
+.TextPostContainer {
+  font-size: 1.25rem;
+  letter-spacing: 0.04rem;
+  line-height: 140%;
+  width: 100%;
+  margin: 1rem 0rem;
+}
+
+.PicturePostContainer {
+  align-self: center;
+  margin-bottom: 1rem;
+}
+.PicturePostContainer .imagePost {
+  border: 1px solid lightgray;
+  padding: 1rem;
+}
+.PicturePostContainer .imagePost img {
+  width: 100%;
+  height: 100%;
+}
+
+.buttonLikeBookmarkPostContainer {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  margin-bottom: 1rem;
+}
+.buttonLikeBookmarkPostContainer .likeCounter {
+  margin-left: 1rem;
+}
+.buttonLikeBookmarkPostContainer div {
+  align-self: center;
+}
+.buttonLikeBookmarkPostContainer div button {
+  background-color: transparent;
+  border: none;
+}
+
+.list-comment h6 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: gray;
+}
+
+.commentContainer {
+  margin-top: 1.25rem;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+.commentContainer input {
+  padding: 0.6rem;
+  font-size: 1rem;
+  background-color: transparent;
+  width: 90%;
+}
+.commentContainer button {
+  padding: 0.6rem;
+  font-size: 0.8rem;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  border: none;
+  background-color: indianred;
+  width: 100%;
+  height: 100%;
+}
+
+.CommentBoxes {
+  background-color: rgba(85, 46, 0, 0.05);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+.CommentBoxes #commentUsername {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.CommentBoxes .commentEdit {
+  margin-top: 0.3rem;
+  color: indianred;
+  text-align: end;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("../../fonts/Lato/Lato-Regular.ttf");
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("../../fonts/Montserrat/Montserrat-Bold.ttf");
+}
+body {
+  font-size: 1rem;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Montserrat", sans-serif;
+}
+
+h1 {
+  font-size: 3.052rem;
+}
+
+h2 {
+  font-size: 2.441rem;
+}
+
+h3 {
+  font-size: 1.953rem;
+}
+
+h4 {
+  font-size: 1.563rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+p {
+  font-size: 1.25rem;
+}
+
+header {
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 1rem;
+}
+header .container {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr auto auto;
+  padding-bottom: 1rem;
+}
+header .container div {
+  align-self: center;
+}
+header .container .logo {
+  width: 8rem;
+  height: auto;
+}
+header .container .logo img {
+  width: 100%;
+  height: 100%;
+}
+header .container .search {
+  justify-self: center;
+}
+header .container .search input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  width: 20rem;
+}
+header .container .search select {
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin-left: 1rem;
+}
+header .container .links {
+  justify-self: end;
+  padding: 1rem;
+}
+header .container .links a {
+  margin-left: 1rem;
+}
+header .container .addPost button {
+  background-color: indianred;
+  border: none;
+  max-width: 2rem;
+  max-height: 2rem;
+  padding: 0.25rem;
+}
+header .container .addPost button img {
+  justify-self: center;
+  align-self: center;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.border-right {
+  border-right: 1px solid lightgray;
+}
