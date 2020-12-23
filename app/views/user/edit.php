@@ -28,42 +28,64 @@
     </section>
   </header>
   <section class="userEditInfo">
-  <div class="container">
-    <div class="userPersonalInfo">
+    <div class="container">
+      <h2>Update Profile Info</h2>
+      <div class="userPersonalInfoContainer">
+        <div class="userPersonalInfo border-right">
+          <form action="<?= URL; ?>/user/update/<?=$user['username'] ?>" method = "post" enctype = "multipart/form-data">
+                  <input type="hidden" name="username" value = "<?=$user['username']; ?>">
+                  <h5>Name</h5>
+                  <input type="text" placeholder="Enter Your Name" name="name" value = "<?=$user['name'] ?>" required >
 
-    </div>
-        
-        <h2 class="coloringblack">Update Profile Info</h2>
-        <form action="<?= URL; ?>/user/update/<?=$user['username'] ?>" method = "post" enctype = "multipart/form-data">
-            <div class="container">
-                <input type="hidden" name="username" value = "<?=$user['username']; ?>">
-                <div class="label">Name</div>
-                <input type="text" placeholder="Enter Your Name" name="name" value = "<?=$user['name'] ?>" required >
+                  <h5>E-mail</h5>
+                  <input type="email" placeholder="Enter E-mail" name="email" value = <?=$user['email'] ?> required>
+                  
+                  <h5>Phone</h5>
+                  <input type="number" placeholder="Enter Phone Number" name="phone" value = <?=$user['phone'] ?> required>
+                  
+                 
+                  <h5>Profile Picture</h5>
+                  <input type="file" id = "picture" name = "picture">
+                  
+                  <h5>Background Picture</h5>
+                  <input type="file" id = "bg_picture" name = "bg_picture">
 
-                <div class="label">E-mail</div>
-                <input type="email" placeholder="Enter E-mail" name="email" value = <?=$user['email'] ?> required>
-                
-                <div class="label">Phone</div>
-                <input type="number" placeholder="Enter Phone Number" name="phone" value = <?=$user['phone'] ?> required>
-                
-                <img 
-                    src="<?=URL?>/assets/img/user/<?=$data['profile']['username']?>/profile/<?=$user['picture']?>" 
-                    alt="<?=$data['profile']['username']?> Profile Picture"
-                    width = "200">
-                <div class="label">Profile Picture</div>
-                <input type="file" id = "picture" name = "picture">
-                
-                <img 
-                        src="<?=URL?>/assets/img/user/<?=$data['profile']['username']?>/background/<?=$data['profile']['bgPicture']?>" 
-                        alt="<?=$data['profile']['username']?> Profile Picture"
-                        width = "200">
-                <div class="label">Background Picture</div>
-                <input type="file" id = "bg_picture" name = "bg_picture">
-
-                <button type="submit"><b>Edit</b></button>
+                  <button type="submit"><b>Edit</b></button>
+          </form>
+        </div>
+        <div class="userPersonalPreview">
+          <div class="profileCard">
+            <div class="userPicture">
+              <div class="userBackgroundPicture">
+                <img src="<?=URL?>/assets/img/user/<?=$data['profile']['username']?>/background/<?=$data['profile']['bgPicture']?>" alt="<?=$data['profile']['username']?> Profile Picture" width = "200">
+              </div>
+              <div class="userProfilePicture">
+                <div class="imageContainer">
+                  <img src="<?=URL?>/assets/img/user/<?=$data['profile']['username']?>/profile/<?=$user['picture']?>" alt="<?=$data['profile']['username']?> Profile Picture" width = "200">
+                </div>
+              </div>
             </div>
-        </form>
-
-        <a href="<?= URL; ?>/user/change_password/<?=$user['username']?>" class="coloring" style="margin-left:10px;">Change Password</a>
+            <div class="userInfoPreview">
+              <div>
+                <h6>Username:</h6>
+                <h3><?=$data['profile']['username']?></h3>
+              </div>
+            </div>
+          </div>
+          <div class="accountPass">
+            <h6>Security Settings</h6>
+            <a href="<?= URL; ?>/user/change_password/<?=$user['username']?>" class="coloring" style="margin-left:10px;">Change Password</a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
+
+  <!-- username: mikazuki
+pwd: BarbatosLupus
+
+username: vin_albertus
+pwd: Barbatos@08
+
+username: vernaprilia
+pwd: INA1762020 -->

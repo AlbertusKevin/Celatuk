@@ -451,6 +451,136 @@
   width: 100%;
 }
 
+.userEditInfo .userPersonalInfoContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 2rem;
+}
+.userEditInfo .userPersonalInfoContainer .userPersonalPreview .profileCard {
+  border: 1px solid lightgrey;
+}
+.userEditInfo .userPersonalInfoContainer .userPersonalPreview .profileCard .userPicture {
+  position: relative;
+}
+.userEditInfo .userPersonalInfoContainer .userPersonalPreview .profileCard .userPicture .userBackgroundPicture {
+  width: 100%;
+  height: 8rem;
+  object-fit: cover;
+}
+.userEditInfo .userPersonalInfoContainer .userPersonalPreview .profileCard .userPicture .userBackgroundPicture img {
+  width: 100%;
+  height: 100%;
+}
+.userEditInfo .userPersonalInfoContainer .userPersonalPreview .profileCard .userPicture .userProfilePicture {
+  object-fit: cover;
+  position: absolute;
+  top: 1rem;
+  width: 100%;
+}
+.userEditInfo .userPersonalInfoContainer .userPersonalPreview .profileCard .userPicture .userProfilePicture .imageContainer {
+  width: 10rem;
+  height: 10rem;
+  margin: 0 auto;
+}
+.userEditInfo .userPersonalInfoContainer .userPersonalPreview .profileCard .userPicture .userProfilePicture .imageContainer img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.userEditInfo .userPersonalInfoContainer .userPersonalPreview .userInfoPreview {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 1rem;
+  padding: 0 1rem;
+}
+.userEditInfo .userPersonalInfoContainer .userPersonalPreview .userInfoPreview h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+.userEditInfo .userPersonalInfoContainer .userPersonalPreview .userInfoPreview h6 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  color: grey;
+}
+.userEditInfo .userPersonalInfoContainer .userPersonalPreview .accountPass {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid lightgrey;
+  padding-bottom: 1rem;
+  margin-top: 2rem;
+}
+.userEditInfo .userPersonalInfoContainer .userPersonalPreview .accountPass h6 {
+  margin: 0;
+  align-self: center;
+}
+.userEditInfo .userPersonalInfoContainer .userPersonalPreview .accountPass a {
+  text-decoration: none;
+  color: indianred;
+  text-align: right;
+  align-self: center;
+  justify-self: end;
+}
+.userEditInfo .userPersonalInfoContainer .userPersonalInfo {
+  margin-right: 1rem;
+}
+.userEditInfo .userPersonalInfoContainer .userPersonalInfo form {
+  max-width: 90%;
+}
+.userEditInfo .userPersonalInfoContainer .userPersonalInfo form h5 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+.userEditInfo .userPersonalInfoContainer .userPersonalInfo form input {
+  margin-bottom: 1rem;
+  width: 100%;
+  font-size: 1.25rem;
+  padding: 1rem;
+}
+.userEditInfo .userPersonalInfoContainer .userPersonalInfo form button {
+  padding: 1rem;
+  background-color: indianred;
+  color: white;
+  width: 100%;
+  border: none;
+}
+.userEditInfo h2 {
+  width: 100%;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid lightgrey;
+}
+
+.editPassword h2 {
+  text-align: center;
+}
+.editPassword form {
+  grid-area: center;
+  justify-content: center;
+}
+.editPassword form h5 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+.editPassword form input {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  padding: 1rem;
+  width: 90%;
+}
+.editPassword form button {
+  padding: 1rem;
+  background-color: indianred;
+  color: white;
+  width: 100%;
+  border: none;
+  margin: 0 auto;
+  text-align: center;
+}
+.editPassword .gridContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "left center right";
+}
+
 @font-face {
   font-family: "Lato";
   src: url("../../fonts/Lato/Lato-Regular.ttf");
