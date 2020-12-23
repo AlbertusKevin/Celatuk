@@ -30,7 +30,7 @@ $likedID = Helper::isLiked($data['username']);
           <option value="people">Orang</option>
         </select>
       </div>
-      <div class="links"><!-- a -->
+      <div class="links">
           <!-- Untuk membuat postingan -->
           <!-- <a href="#"><img class="topNavigationBarLinkIcons" id="TopNavigationBarLinkIconHome" src="<?= URL ?>assets/images/home_icon.svg"></a> -->
           <a href="<?= URL ?>/messenger/index/<?= $data['username'] ?>"><img class="topNavigationBarLinkIcons"id="TopNavigationBarLinkIconChat" src="<?= URL ?>/assets/images/mdi_forum.svg"></a>
@@ -170,8 +170,8 @@ $likedID = Helper::isLiked($data['username']);
         </div>
         <div class="commentContainer" id="commentContainer">
           <!-- kirim comment -->
-        <input type="text" width="400" id="comment-<?= $post['id'] ?>" name="comment" placeholder="Tulis Komentar">
-          <?php else : ?>
+          <input type="text" width="400" id="comment-<?= $post['id'] ?>" name="comment" placeholder="Tulis Komentar">
+        <?php else : ?>
           </div>
         </div>
 
