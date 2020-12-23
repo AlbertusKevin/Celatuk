@@ -321,7 +321,7 @@
   color: indianred;
 }
 
-.createGroup {
+.createList {
   margin: 1rem 1rem 2rem;
   background-color: indianred;
   padding: 1rem;
@@ -332,34 +332,45 @@
   text-decoration: none;
   text-align: center;
 }
-.createGroup h6 {
+.createList h6 {
   margin: 0.5rem 0;
 }
 
-.groupContainer {
+.listContainer {
   margin: 1rem 1rem 2rem;
   padding: 1rem;
   border: 1px solid lightgrey;
 }
-.groupContainer a {
+.listContainer .listGrid {
   display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas: "picture name delete";
+}
+.listContainer .namecontainer {
+  grid-area: "name";
+}
+.listContainer .deleteContainer {
+  grid-area: "delete";
+}
+.listContainer a {
   text-decoration: none;
   color: black;
-  grid-template-columns: auto 1fr;
+  display: block;
 }
-.groupContainer .pictureContainer {
+.listContainer .pictureContainer {
+  grid-area: "picture";
   width: 4rem;
   height: 4rem;
 }
-.groupContainer .pictureContainer img {
+.listContainer .pictureContainer img {
   width: 100%;
   height: 100%;
   border-radius: 50%;
 }
-.groupContainer div {
+.listContainer div {
   align-self: center;
 }
-.groupContainer div p {
+.listContainer div p {
   align-self: center;
   margin-left: 2rem;
 }

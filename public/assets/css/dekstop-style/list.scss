@@ -1,4 +1,4 @@
-.createGroup{
+.createList{
   margin: 1rem 1rem 2rem;
   background-color: indianred;
   padding: 1rem;
@@ -12,17 +12,28 @@
     margin: 0.5rem 0;
   }
 }
-.groupContainer{
+.listContainer{
   margin: 1rem 1rem 2rem;
   padding: 1rem;
   border: 1px solid lightgrey;
-  a{
+  .listGrid{
     display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: "picture name delete";
+  }
+  .namecontainer{
+    grid-area: "name";
+  }
+  .deleteContainer{
+    grid-area: "delete";
+  }
+  a{
     text-decoration: none;
     color: black;
-    grid-template-columns: auto 1fr;
+    display: block;
   }
   .pictureContainer{
+    grid-area: "picture";
     width: 4rem;
     height: 4rem;
     img{

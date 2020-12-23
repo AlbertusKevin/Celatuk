@@ -36,8 +36,8 @@
       <h4>Belum ada grup yang dibuat pada aplikasi ini</h4>
     <?php endif; ?>
     <?php foreach($data['group'] as $group): ?>
-    <div class="groupContainer">
-      <a href="<?=URL?>/group/homepage/<?=$group['groupName'].'/'.$data['username'];?>">
+    <div class="listContainer">
+      <a class = "listGrid" href="<?=URL?>/group/homepage/<?=$group['groupName'].'/'.$data['username'];?>">
         <div class="pictureContainer">
         <img src="<?=URL?>/assets/img/group/<?=$group['groupName']?>/profile/<?=$group['picture']?>" alt="<?=$group['groupName']?> Picture" class="pp ppmargin">
         </div>
@@ -48,7 +48,7 @@
     </div>
     <?php endforeach; ?>
     <a href="<?=URL?>/group/create/<?=$data['username']?>" class="ppmargin coloring">
-      <div class="createGroup">
+      <div class="createList">
         <h6>Buat Group</h6>
       </div>
     </a>
