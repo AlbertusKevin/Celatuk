@@ -1,12 +1,41 @@
 <?php $user = $data['profile']; ?>
 <body>
-    <div class="container">
-        <h4><?= Message::updateProfile200(); ?></h4>
-        <h4><?= Message::picture406(); ?></h4>
+  <h4><?= Message::updateProfile200(); ?></h4>
+  <h4><?= Message::picture406(); ?></h4>
+  <!-- navigasi -->
+  <header>
+    <section class="container">
+      <div class="logo">
+        <img src="<?= URL ?>/assets/images/logo.svg">
+      </div>
+      <div class="search">
+        <input type="hidden" value="<?= $data['username'] ?>" id="username">
+        <input class="topNavigationBarSearchInput" type="text" id="cari" name="cari" placeholder="Cari orang, grup, postingan">
+        <select name="filter" id="TopNavigationBarFilterOptions">
+          <option value="group">Grup</option>
+          <option value="people">Orang</option>
+        </select>
+      </div>
+      <div class="links">
+          <a href="<?= URL ?>/home/index/<?=$data['profile']['username']?>"><img class="topNavigationBarLinkIcons" id="TopNavigationBarLinkIconHome" src="<?= URL ?>/assets/images/home_icon.svg"></a>
+          <a href="<?= URL ?>/messenger/index/<?=$data['profile']['username']?>"><img class="topNavigationBarLinkIcons"id="TopNavigationBarLinkIconChat" src="<?= URL ?>/assets/images/mdi_forum.svg"></a>
+          <a href="<?= URL ?>/friend/index/<?=$data['profile']['username']?>"><img class="topNavigationBarLinkIcons"id="TopNavigationBarLinkIconFriends" src="<?= URL ?>/assets/images/mdi_friends.svg"></a>
+          <a href="<?= URL ?>/home/index_user/<?=$data['profile']['username']?>"><img class="topNavigationBarLinkIcons"id="TopNavigationBarLinkIconUser" src="<?= URL ?>/assets/images/mdi_userlist.svg"></a>
+          <a href="<?= URL ?>/group/index/<?=$data['profile']['username']?>"><img class="topNavigationBarLinkIcons"id="TopNavigationBarLinkIconGroup" src="<?= URL ?>/assets/images/group_icon.svg"></a>
+          <a href="<?= URL ?>/home/profile/<?=$data['profile']['username']?>"><img class="topNavigationBarLinkIcons"id="TopNavigationBarLinkIconProfile" src="<?= URL ?>/assets/images/mdi_user.svg"></a>
+          <a href="<?= URL ?>/user/logout"><img class="topNavigationBarLinkIcons" id="TopNavigationBarLinkIconLogout"src="<?= URL ?>/assets/images/mdi_power.svg"></a>
+      </div>
+    </section>
+  </header>
+  <section class="userEditInfo">
+  <div class="container">
+    <div class="userPersonalInfo">
+
+    </div>
+        
         <h2 class="coloringblack">Update Profile Info</h2>
         <form action="<?= URL; ?>/user/update/<?=$user['username'] ?>" method = "post" enctype = "multipart/form-data">
             <div class="container">
-                <div class="logo"><img class="svg" src="<?=URL?>/assets//images/logo.svg"></div>
                 <input type="hidden" name="username" value = "<?=$user['username']; ?>">
                 <div class="label">Name</div>
                 <input type="text" placeholder="Enter Your Name" name="name" value = "<?=$user['name'] ?>" required >
@@ -37,3 +66,4 @@
 
         <a href="<?= URL; ?>/user/change_password/<?=$user['username']?>" class="coloring" style="margin-left:10px;">Change Password</a>
     </div>
+  </section>

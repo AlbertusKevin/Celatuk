@@ -55,7 +55,7 @@
         </div>
       </div>
       <div class="userContainer"id='coba'>
-        <div>
+        <div class="userSettings">
           <form action="<?= URL; ?>/home/darkmode/<?= $data['profile']['username']; ?>" method='post'>
             Darkmode: <button type="submit">
             <?php if ($data['setting']['darkmode'] == 1) : ?>
@@ -67,10 +67,15 @@
             <?php endif; ?>
             </button>
           </form>
-          <a href="<?= URL ?>/post/mybookmark/<?= $data['profile']['username'] ?>" class="profilemargin coloring">My Bookmarked</a>
+          <div>
+            <a href="<?= URL ?>/post/mybookmark/<?= $data['profile']['username'] ?>" class="profilemargin coloring">My Bookmarked</a>
+          </div>
+          <div>
           <a href="<?= URL ?>/user/edit/<?= $data['profile']['username'] ?>" class="coloring profilemargin">Edit</a>
-          <a href="<?= URL; ?>/home/index/<?= $data['profile']['username'] ?>" class="coloring ppmargin">kembali</a>
+          </div>
+          <div>
           <a href="<?= URL; ?>/user/delete/<?= $data['profile']['username'] ?>" onclick="confirm('Are you sure want to delete this account?');" class="coloring ppmargin">Delete Account</a>
+          </div>
         </div>
         <div class="postContainer">
           <?php if (empty($data['post'])) : ?>
@@ -80,13 +85,17 @@
           <?php foreach ($data['post'] as $post) : ?>
           <div class="post">
             <!-- Menampilkan user yang post -->
-            <div class="ProfilePicturePost">
-              <span><img src="<?= URL; ?>/assets/img/user/<?= $data['profile']['username'] ?>/profile/<?= $data['profile']['picture'] ?>" width="50"></span>
+            <div class="ProfilePicturePostContainer">
+              <a href="<?= URL ?>/home/profile/<?= $data['profile']['username'] ?>">
+                <div class="ProfilePicturePost">
+                  <span><img src="<?= URL; ?>/assets/img/user/<?= $data['profile']['username'] ?>/profile/<?= $data['profile']['picture'] ?>" width="50"></span>
+                </div>
+                <div class="UserNamePost">
+                  <span><?= $post['username'] ?></span>
+                </div>
+              </a>
             </div>
-            <div class="UserNamePost">
-              <span><?= $post['username'] ?></span>
-            </div>
-            
+
             <div class="TextPostContainer">
               <!-- Menampilkan isi postingan -->
               <span><?= $post['content']; ?>
@@ -178,9 +187,11 @@
                 <button class="button-comment" data-id="<?= $post['id']; ?>" data-username="<?= $data['profile']['username']; ?>">Kirim</button>
               </div>
             </div>
+            <div class="editPost">
+              <a href="<?= URL; ?>/post/edit_form/<?= $post['username']; ?>/<?= $post['id'] ?>" class="coloring">Edit</a>
+              <a href="<?= URL; ?>/post/delete/<?= $post['username']; ?>/<?= $post['id'] ?>" class="coloring">Delete</a>
+            </div>
           </div>                   
-            <a href="<?= URL; ?>/post/edit_form/<?= $post['username']; ?>/<?= $post['id'] ?>" class="coloring">Edit</a>
-            <a href="<?= URL; ?>/post/delete/<?= $post['username']; ?>/<?= $post['id'] ?>" class="coloring">Delete</a>
           <?php endforeach; ?>
         </div>
       </div>

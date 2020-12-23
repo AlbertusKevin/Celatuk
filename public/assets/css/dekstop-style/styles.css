@@ -150,9 +150,6 @@
   grid-template-columns: 1fr 2fr 1fr;
   grid-template-areas: "leftside post rightside";
 }
-.home .postContainer {
-  grid-area: post;
-}
 .home .createPost {
   border: 1px solid lightgrey;
   margin: 1rem 1rem 2rem;
@@ -192,19 +189,28 @@
   max-height: 5rem;
   font-family: "Lato", sans-serif;
 }
-.home .post {
+
+.postContainer {
+  grid-area: post;
+}
+.postContainer h4 {
+  padding-left: 1rem;
+}
+
+.post {
   margin: 1rem 1rem 2rem 1rem;
   padding: 1rem;
   border: 1px solid lightgray;
 }
-.home .ProfilePicturePostContainer a {
+
+.ProfilePicturePostContainer a {
   display: grid;
   grid-template-columns: auto 1fr;
   text-decoration: none;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid lightgray;
 }
-.home .ProfilePicturePostContainer a .UserNamePost {
+.ProfilePicturePostContainer a .UserNamePost {
   align-self: center;
   font-weight: bold;
   margin-left: 1rem;
@@ -212,67 +218,72 @@
   color: indianred;
   font-family: "Montserrat", sans-serif;
 }
-.home .ProfilePicturePostContainer a .ProfilePicturePost {
+.ProfilePicturePostContainer a .ProfilePicturePost {
   width: 4rem;
   height: 4rem;
   object-fit: cover;
 }
-.home .ProfilePicturePostContainer a .ProfilePicturePost img {
+.ProfilePicturePostContainer a .ProfilePicturePost img {
   border-radius: 50%;
   width: 100%;
   height: 100%;
 }
-.home .TextPostContainer {
+
+.TextPostContainer {
   font-size: 1.25rem;
   letter-spacing: 0.04rem;
   line-height: 140%;
   width: 100%;
   margin: 1rem 0rem;
 }
-.home .PicturePostContainer {
+
+.PicturePostContainer {
   align-self: center;
   margin-bottom: 1rem;
 }
-.home .PicturePostContainer .imagePost {
+.PicturePostContainer .imagePost {
   border: 1px solid lightgray;
   padding: 1rem;
 }
-.home .PicturePostContainer .imagePost img {
+.PicturePostContainer .imagePost img {
   width: 100%;
   height: 100%;
 }
-.home .buttonLikeBookmarkPostContainer {
+
+.buttonLikeBookmarkPostContainer {
   display: grid;
   grid-template-columns: auto 1fr auto;
   margin-bottom: 1rem;
 }
-.home .buttonLikeBookmarkPostContainer .likeCounter {
+.buttonLikeBookmarkPostContainer .likeCounter {
   margin-left: 1rem;
 }
-.home .buttonLikeBookmarkPostContainer div {
+.buttonLikeBookmarkPostContainer div {
   align-self: center;
 }
-.home .buttonLikeBookmarkPostContainer div button {
+.buttonLikeBookmarkPostContainer div button {
   background-color: transparent;
   border: none;
 }
-.home .list-comment h6 {
+
+.list-comment h6 {
   margin-top: 1rem;
   margin-bottom: 1rem;
   color: gray;
 }
-.home .commentContainer {
+
+.commentContainer {
   margin-top: 1.25rem;
   display: grid;
   grid-template-columns: 3fr 1fr;
 }
-.home .commentContainer input {
+.commentContainer input {
   padding: 0.6rem;
   font-size: 1rem;
   background-color: transparent;
   width: 90%;
 }
-.home .commentContainer button {
+.commentContainer button {
   padding: 0.6rem;
   font-size: 0.8rem;
   color: white;
@@ -282,19 +293,32 @@
   width: 100%;
   height: 100%;
 }
-.home .CommentBoxes {
+
+.CommentBoxes {
   background-color: rgba(85, 46, 0, 0.05);
   padding: 1rem;
   margin-bottom: 1rem;
 }
-.home .CommentBoxes #commentUsername {
+.CommentBoxes #commentUsername {
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
-.home .CommentBoxes .commentEdit {
+.CommentBoxes .commentEdit {
   margin-top: 0.3rem;
   color: indianred;
   text-align: end;
+}
+
+.editPost {
+  margin-top: 1rem;
+}
+.editPost a {
+  display: inline-block;
+  text-decoration: none;
+  margin-top: 0.5rem;
+  margin-right: 0.5rem;
+  font-weight: bold;
+  color: indianred;
 }
 
 .createGroup {
@@ -378,16 +402,53 @@
 }
 .profile .userInformation .userDetails p {
   letter-spacing: 0.03rem;
+  color: grey;
 }
-.profile .userInformation h4, .profile .userInformation h1 {
+.profile .userInformation h4 {
   margin-bottom: 1rem;
+  color: grey;
 }
 .profile .userInformation h1 {
   margin-top: 0;
+  margin-bottom: 1rem;
 }
 .profile .userContainer {
   display: grid;
-  grid-template-columns: 0.61fr 1fr;
+  grid-template-columns: 0.5fr 1fr 0.5fr;
+  grid-template-areas: "userSettings post rightside";
+}
+.profile .userContainer .userSettings {
+  grid-area: userSettings;
+  border: 1px solid lightgray;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  padding-top: 1rem;
+}
+.profile .userContainer .userSettings div {
+  border-bottom: 1px solid lightgrey;
+}
+.profile .userContainer .userSettings div a {
+  display: block;
+  align-self: center;
+  text-decoration: none;
+  font-weight: bold;
+  color: indianred;
+  padding: 1rem;
+}
+.profile .userContainer .userSettings form {
+  align-self: center;
+  padding: 1rem;
+  font-weight: bold;
+  max-width: 100%;
+  margin-bottom: 1rem;
+}
+.profile .userContainer .userSettings form button {
+  margin-top: 0.5rem;
+  background-color: indianred;
+  border: none;
+  color: white;
+  padding: 0.6rem;
+  width: 100%;
 }
 
 @font-face {
@@ -402,6 +463,7 @@ body {
   font-size: 1rem;
   font-family: "Lato", sans-serif;
   font-weight: 400;
+  margin: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {

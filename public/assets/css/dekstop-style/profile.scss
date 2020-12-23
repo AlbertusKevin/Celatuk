@@ -35,17 +35,54 @@
       justify-self: end;
       p{
         letter-spacing: 0.03rem;
+        color: grey;
       }
     }
-    h4,h1{
+    h4{
       margin-bottom: 1rem;
+      color: grey;
     }
     h1{
       margin-top: 0;
+      margin-bottom: 1rem;
     }
   }
   .userContainer{
     display: grid;
-    grid-template-columns: 0.61fr 1fr;
+    grid-template-columns: 0.5fr 1fr 0.5fr;
+    grid-template-areas: "userSettings post rightside" ;
+    .userSettings{
+      grid-area: userSettings;
+      border: 1px solid lightgray;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+      padding-top: 1rem;
+      div{
+        border-bottom: 1px solid lightgrey;
+        a{
+          display: block;
+          align-self: center;
+          text-decoration: none;
+          font-weight: bold;
+          color: indianred;
+          padding: 1rem;
+        }
+      }
+      form{
+        align-self: center;
+        padding: 1rem;
+        font-weight: bold;
+        max-width: 100%;
+        margin-bottom: 1rem;
+        button{
+          margin-top: 0.5rem;
+          background-color: indianred;
+          border: none;
+          color: white;
+          padding: 0.6rem;
+          width: 100%;
+        }
+      }
+    }
   }
 }

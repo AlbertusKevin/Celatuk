@@ -77,10 +77,10 @@ $likedID = Helper::isLiked($data['username']);
         <!-- Menampilkan user yang post -->
           <?php if ($post['username'] == $data['username']) : ?>
           <!-- ketika diklik, jika pemosting adalah orang itu sendiri, maka disambungkan ke halaman profilenya beserta fitur edit -->
-          <a href="<?= URL ?>/home/profile/<?= $data['username'] ?>" class="">
+          <a href="<?= URL ?>/home/profile/<?= $data['username'] ?>">
           <?php else : ?>
           <!-- jika orang lain, maka hanya menampilkan profile orang tersebut -->
-          <a href="<?= URL; ?>/user/profile/<?= $data['username'] ?>/<?= $post['username'] ?>" class="">
+          <a href="<?= URL; ?>/user/profile/<?= $data['username'] ?>/<?= $post['username'] ?>">
           <?php endif; ?>
             <div class="ProfilePicturePost">
               <img src="<?= URL; ?>/assets/img/user/<?= $post['username'] ?>/profile/<?= $post['picture'] ?>">
