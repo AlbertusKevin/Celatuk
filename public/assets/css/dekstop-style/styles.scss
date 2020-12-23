@@ -1,5 +1,7 @@
 @import "login";
+@import "register";
 @import "home";
+@import "group";
 @font-face {
   font-family: 'Lato';
   src: url('../../fonts/Lato/Lato-Regular.ttf');
@@ -73,21 +75,6 @@ header {
     padding: 1rem;
     a{
       margin-left: 1rem;
-    }
-  }
-  .addPost{
-    button{
-      background-color: indianred;
-      border: none;
-      max-width: 2rem;
-      max-height: 2rem;
-      padding: 0.25rem;
-      img{
-        justify-self: center;
-        align-self: center;
-        margin: 0;
-        padding: 0;
-      }
     }
   }
 }

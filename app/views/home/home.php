@@ -30,13 +30,6 @@ $likedID = Helper::isLiked($data['username']);
           <option value="people">Orang</option>
         </select>
       </div>
-      <div class="addPost">
-          <form action="<?= URL ?>/post/form/<?= $data['username'] ?>" method="post" enctype="multipart/form-data">
-            <button type="submit" id="NavigationBarPostButton">
-              <img class="topNavigationBarPostButtonIcons" id="TopNavigationBarLinkIconAddPost" src="<?= URL ?>/assets/images/mdi_plus.svg">
-            </button>
-          </form>
-      </div>
       <div class="links">
           <!-- Untuk membuat postingan -->
           <!-- <a href="#"><img class="topNavigationBarLinkIcons" id="TopNavigationBarLinkIconHome" src="<?= URL ?>assets/images/home_icon.svg"></a> -->
@@ -50,130 +43,150 @@ $likedID = Helper::isLiked($data['username']);
     </section>
   </header>
 
-  <!-- Untuk menampilkan postingan, jika tidak ada postingan -->
-  <?php if (empty($data['post'])) : ?>
-      <h4>Belum ada Postingan</h4>
-  <?php endif; ?>
-  
-  <div class="container contentLayout">
-    <div class="postContainer">
+  <section class="home">
+    <!-- Untuk menampilkan postingan, jika tidak ada postingan -->
+    <?php if (empty($data['post'])) : ?>
+        <h4>Belum ada Postingan</h4>
+    <?php endif; ?>
     
-  <!-- Untuk menampilkan postingan, jika ada postingan -->
-  <?php foreach ($data['post'] as $post) : ?>
-    <div class="post">
-      <div class="ProfilePicturePostContainer">
-      <!-- Menampilkan user yang post -->
-        <?php if ($post['username'] == $data['username']) : ?>
-        <!-- ketika diklik, jika pemosting adalah orang itu sendiri, maka disambungkan ke halaman profilenya beserta fitur edit -->
-        <a href="<?= URL ?>/home/profile/<?= $data['username'] ?>" class="">
-        <?php else : ?>
-        <!-- jika orang lain, maka hanya menampilkan profile orang tersebut -->
-        <a href="<?= URL; ?>/user/profile/<?= $data['username'] ?>/<?= $post['username'] ?>" class="">
-        <?php endif; ?>
-          <div class="ProfilePicturePost">
-            <img src="<?= URL; ?>/assets/img/user/<?= $post['username'] ?>/profile/<?= $post['picture'] ?>">
-          </div>
-          <div class="UserNamePost"><?= $post['username'] ?></div>
-          </a>
-      </div>
-
-      <div class="TextPostContainer">
-        <!-- Menampilkan isi teks postingan -->
-        <span><?= $post['content']; ?></span>
-      </div>
-
-      <?php if ($post['image'] != " ") : ?>
-      <div class="PicturePostContainer">
-        <div class="imagePost">
-          <!-- Jika user memposting image -->
-          <img src="<?= URL; ?>/assets/img/user/<?= $post['username']; ?>/post/<?= $post['image'] ?>" alt="Can't load image!">
-        </div>
-      </div>
-      <?php endif; ?>
-
-      <div class="buttonLikeBookmarkPostContainer">
-        <div class="likeButton">
-          <!-- tombol like -->
-          <?php if (in_array($post['id'], $likedID)) : ?><!-- Like -->
-          <button id="UndoPostButton" class="button-like unlike" data-id="<?= $post['id']; ?>" data-username="<?= $data['username']; ?>">
-            <img class="ButtonIcons" id="LikePostButtonIcons" src="<?= URL ?>/assets/images/mdi_thumb-up.svg">
-          </button>
-          <!-- Unlike -->
-          <?php else : ?>
-           <button id="doPostButton" class="button-like like" data-id="<?= $post['id']; ?>" data-username="<?= $data['username']; ?>">
-            <img class="ButtonIcons" id="LikePostButtonIcons" src="<?= URL ?>/assets/images/mdi_thumb-up-outline.svg">
-          </button>
-          <?php endif; ?>
-        </div>
-
-        <div class="likeCounter">
-          <!-- Menampilkan jumlah like -->
-          <?php if (in_array($post['id'], $likedID)) : ?>
-          <span><span class="like-count"><?= $post['likeCount'] ?></span> orang termasuk Anda menyukai postingan ini</span>
-          <?php else : ?>
-          <span><span class="like-count"><?= $post['likeCount'] ?></span> orang menyukai postingan ini</span>
-          <?php endif; ?>
-        </div>
-
-        <div class="bookmarkButton">
-          <!-- tombol bookmark -->
-          <?php if (in_array($post['id'], $arrayId)) : ?> <!-- Bookmark -->
-          <button id="UndoPostButton" class="button-bookmark delete-bookmark" data-id="<?= $post['id']; ?>" data-username="<?= $data['username']; ?>">
-          <img class="ButtonIcons" id="BookmarkPostButtonIcons" data-url="<?= URL ?>" src="<?= URL ?>/assets/images/mdi_bookmark.svg">                    
-          </button>
-          <!-- Remove Bookmark -->
-          <?php else : ?>
-          <button id="doPostButton" class="button-bookmark bookmark" data-id="<?= $post['id']; ?>" data-username="<?= $data['username']; ?>">
-          <img class="ButtonIcons" id="UnbookmarkPostButtonIcons" data-url="<?= URL ?>" src="<?= URL ?>/assets/images/mdi_bookmark-outline.svg">
-          </button>
-          <?php endif; ?>
-        </div>
-      </div>
-
+    <div class="container contentLayout">
+      <div class="groupList">
       
-      <div id="commentListsContainer">
-        <!-- Tampilkan Comment -->
-        <div class="list-comment">
-          <?php $comments = Helper::getCommentPostId($post['id']);
-          if (!empty($comments)) :
-            foreach ($comments as $comment) : ?>
-          <div class="CommentBoxes">
-            <div class="comment-<?= $comment['id'] ?>">
-              <div id="commentUsername">
-                <?= $comment['username']; ?>
-              </div>
-               <div id="commentContent">
-                <span class="isi-comment"><?= $comment['comment']; ?></span>
-              </div>
+      </div>
+    
+      <div class="postContainer">
+        <div class="createPost">
+          <form action="<?=URL?>/post/create/<?=$data['username']?>" method = "post" enctype = "multipart/form-data">
+            <textarea name="text" cols="100" rows="7" placeholder="What do you want to post?"></textarea>
+            <div class="action">
+              <select name="privacy">
+                  <option value="private">Private</option>
+                  <option value="public">Public</option>
+                  <option value="friend">Friend</option>
+              </select>
+              <input type="file" name = "img">
+              <button type = "submit">Post</button>
             </div>
-            <?php if ($comment['username'] === $data['username']) : ?>
-            <div class="commentEdit"><!-- <div id="EditDeleteComment"> -->
-              <span id="editComment" class="edit-comment" data-username="<?= $data['username']; ?>" data-id="<?= $comment['id'] ?>" data-idPost="<?= $post['id'] ?>">ubah</span> |
-              <span id="deleteComment" class="delete-comment" data-username="<?= $data['username']; ?>" data-id="<?= $comment['id'] ?>" data-idPost="<?= $post['id'] ?>">hapus</span>
-            </div><!-- </div> -->
+          </form>
+        </div>
+      
+    <!-- Untuk menampilkan postingan, jika ada postingan -->
+    <?php foreach ($data['post'] as $post) : ?>
+      <div class="post">
+        <div class="ProfilePicturePostContainer">
+        <!-- Menampilkan user yang post -->
+          <?php if ($post['username'] == $data['username']) : ?>
+          <!-- ketika diklik, jika pemosting adalah orang itu sendiri, maka disambungkan ke halaman profilenya beserta fitur edit -->
+          <a href="<?= URL ?>/home/profile/<?= $data['username'] ?>" class="">
+          <?php else : ?>
+          <!-- jika orang lain, maka hanya menampilkan profile orang tersebut -->
+          <a href="<?= URL; ?>/user/profile/<?= $data['username'] ?>/<?= $post['username'] ?>" class="">
+          <?php endif; ?>
+            <div class="ProfilePicturePost">
+              <img src="<?= URL; ?>/assets/img/user/<?= $post['username'] ?>/profile/<?= $post['picture'] ?>">
+            </div>
+            <div class="UserNamePost"><?= $post['username'] ?></div>
+            </a>
+        </div>
+
+        <div class="TextPostContainer">
+          <!-- Menampilkan isi teks postingan -->
+          <span><?= $post['content']; ?></span>
+        </div>
+
+        <?php if ($post['image'] != " ") : ?>
+        <div class="PicturePostContainer">
+          <div class="imagePost">
+            <!-- Jika user memposting image -->
+            <img src="<?= URL; ?>/assets/img/user/<?= $post['username']; ?>/post/<?= $post['image'] ?>" alt="Can't load image!">
+          </div>
+        </div>
+        <?php endif; ?>
+
+        <div class="buttonLikeBookmarkPostContainer">
+          <div class="likeButton">
+            <!-- tombol like -->
+            <?php if (in_array($post['id'], $likedID)) : ?><!-- Like -->
+            <button id="UndoPostButton" class="button-like unlike" data-id="<?= $post['id']; ?>" data-username="<?= $data['username']; ?>">
+              <img class="ButtonIcons" id="LikePostButtonIcons" src="<?= URL ?>/assets/images/mdi_thumb-up.svg">
+            </button>
+            <!-- Unlike -->
+            <?php else : ?>
+            <button id="doPostButton" class="button-like like" data-id="<?= $post['id']; ?>" data-username="<?= $data['username']; ?>">
+              <img class="ButtonIcons" id="LikePostButtonIcons" src="<?= URL ?>/assets/images/mdi_thumb-up-outline.svg">
+            </button>
             <?php endif; ?>
           </div>
-          <?php endforeach; ?>
-        </div>
-      </div>
-      <div class="commentContainer" id="commentContainer">
-        <!-- kirim comment -->
-      <input type="text" width="400" id="comment-<?= $post['id'] ?>" name="comment" placeholder="Tulis Komentar">
-        <?php else : ?>
-        </div>
-      </div>
 
-      <div class="commentContainer" id="commentContainer">
-        <!-- kirim comment -->
-        <div>
-          <input type="text" width="400" id="comment-<?= $post['id'] ?>" name="comment" placeholder="Jadilah orang pertama yang berkomentar">
+          <div class="likeCounter">
+            <!-- Menampilkan jumlah like -->
+            <?php if (in_array($post['id'], $likedID)) : ?>
+            <span><span class="like-count"><?= $post['likeCount'] ?></span> orang termasuk Anda menyukai postingan ini</span>
+            <?php else : ?>
+            <span><span class="like-count"><?= $post['likeCount'] ?></span> orang menyukai postingan ini</span>
+            <?php endif; ?>
+          </div>
+
+          <div class="bookmarkButton">
+            <!-- tombol bookmark -->
+            <?php if (in_array($post['id'], $arrayId)) : ?> <!-- Bookmark -->
+            <button id="UndoPostButton" class="button-bookmark delete-bookmark" data-id="<?= $post['id']; ?>" data-username="<?= $data['username']; ?>">
+            <img class="ButtonIcons" id="BookmarkPostButtonIcons" data-url="<?= URL ?>" src="<?= URL ?>/assets/images/mdi_bookmark.svg">                    
+            </button>
+            <!-- Remove Bookmark -->
+            <?php else : ?>
+            <button id="doPostButton" class="button-bookmark bookmark" data-id="<?= $post['id']; ?>" data-username="<?= $data['username']; ?>">
+            <img class="ButtonIcons" id="UnbookmarkPostButtonIcons" data-url="<?= URL ?>" src="<?= URL ?>/assets/images/mdi_bookmark-outline.svg">
+            </button>
+            <?php endif; ?>
+          </div>
         </div>
-        <?php endif; ?>
-        <div id="commentButton">
-          <button class="button-comment" data-id="<?= $post['id']; ?>" data-username="<?= $data['username']; ?>">Kirim</button>
+
+        
+        <div id="commentListsContainer">
+          <!-- Tampilkan Comment -->
+          <div class="list-comment">
+            <?php $comments = Helper::getCommentPostId($post['id']);
+            if (!empty($comments)) :
+              foreach ($comments as $comment) : ?>
+            <div class="CommentBoxes">
+              <div class="comment-<?= $comment['id'] ?>">
+                <div id="commentUsername">
+                  <?= $comment['username']; ?>
+                </div>
+                <div id="commentContent">
+                  <span class="isi-comment"><?= $comment['comment']; ?></span>
+                </div>
+              </div>
+              <?php if ($comment['username'] === $data['username']) : ?>
+              <div class="commentEdit"><!-- <div id="EditDeleteComment"> -->
+                <span id="editComment" class="edit-comment" data-username="<?= $data['username']; ?>" data-id="<?= $comment['id'] ?>" data-idPost="<?= $post['id'] ?>">ubah</span> |
+                <span id="deleteComment" class="delete-comment" data-username="<?= $data['username']; ?>" data-id="<?= $comment['id'] ?>" data-idPost="<?= $post['id'] ?>">hapus</span>
+              </div><!-- </div> -->
+              <?php endif; ?>
+            </div>
+            <?php endforeach; ?>
+          </div>
+        </div>
+        <div class="commentContainer" id="commentContainer">
+          <!-- kirim comment -->
+        <input type="text" width="400" id="comment-<?= $post['id'] ?>" name="comment" placeholder="Tulis Komentar">
+          <?php else : ?>
+          </div>
+        </div>
+
+        <div class="commentContainer" id="commentContainer">
+          <!-- kirim comment -->
+          <div>
+            <input type="text" width="400" id="comment-<?= $post['id'] ?>" name="comment" placeholder="Jadilah orang pertama yang berkomentar">
+          </div>
+          <?php endif; ?>
+          <div id="commentButton">
+            <button class="button-comment" data-id="<?= $post['id']; ?>" data-username="<?= $data['username']; ?>">Kirim</button>
+          </div>
         </div>
       </div>
+    <?php endforeach; ?>
+      </div>
     </div>
-  <?php endforeach; ?>
-    </div>
-  </div>
+  </section>
