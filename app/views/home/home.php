@@ -30,7 +30,7 @@ $likedID = Helper::isLiked($data['username']);
           <option value="people">Orang</option>
         </select>
       </div>
-      <div class="links">
+      <div class="links"><!-- a -->
           <!-- Untuk membuat postingan -->
           <!-- <a href="#"><img class="topNavigationBarLinkIcons" id="TopNavigationBarLinkIconHome" src="<?= URL ?>assets/images/home_icon.svg"></a> -->
           <a href="<?= URL ?>/messenger/index/<?= $data['username'] ?>"><img class="topNavigationBarLinkIcons"id="TopNavigationBarLinkIconChat" src="<?= URL ?>/assets/images/mdi_forum.svg"></a>
