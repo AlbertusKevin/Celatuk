@@ -8,7 +8,7 @@
   <!-- Menampilkan pesan jika ada error, dari kelas Message dengan method static  -->
   <h4><?= Message::deletePost204(); ?></h4>
   <h4><?= Message::updatePost204(); ?></h4>
-    <!-- navigasi -->
+  <!-- navigasi -->
   <header>
     <section class="container">
       <div class="logo">
