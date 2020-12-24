@@ -197,6 +197,10 @@
   padding-left: 1rem;
 }
 
+.leftSidebar {
+  grid-area: leftSide;
+}
+
 .post {
   margin: 1rem 1rem 2rem 1rem;
   padding: 1rem;
@@ -716,4 +720,10 @@ header .container .links a {
 
 .border-right {
   border-right: 1px solid lightgray;
+}
+
+.gridLayout {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 0.5fr;
+  grid-template-areas: "leftside post rightside";
 }
