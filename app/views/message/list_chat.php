@@ -41,39 +41,44 @@
         if (!in_array($contact['fromUser'], $friend)) :
           $friend[] = $contact['fromUser']; ?>
           <div class="listContainer">
-            <a class = "listGrid" href="<?= URL ?>/friend/chat/<?= $data['username'] ?>/<?= $contact['fromUser'] ?>">
-              <div class="pictureContainer">
-                <img src="<?= URL ?>/assets/img/user/<?= $contact['fromUser'] ?>/profile/<?= $data['picture'][$i]['picture'] ?>" width="100">
-              </div>
-              <div class = "ppmargin nameContainer">
-                <p><?= $contact['fromUser']; ?></p> 
-              </div>
-              <div class="deleteContainer">
-                <a href="<?= URL ?>/messenger/delete/<?= $data['username'] ?>/<?= $contact['fromUser'] ?>">
+            <div>
+              <a class = "listGrid" href="<?= URL ?>/friend/chat/<?= $data['username'] ?>/<?= $contact['fromUser'] ?>">
+                <div class="pictureContainer">
+                  <img src="<?= URL ?>/assets/img/user/<?= $contact['fromUser'] ?>/profile/<?= $data['picture'][$i]['picture'] ?>" width="100">
+                </div>
+                <div class = "ppmargin nameContainer">
+                  <p><?= $contact['fromUser']; ?></p> 
+                </div>
+              </a>
+            </div>
+            <div class="operationButtonContainer">
+              <a href="<?= URL ?>/messenger/delete/<?= $data['username'] ?>/<?= $contact['fromUser'] ?>">
                 Delete
-                </a>
-              </div>
-            </a>
+              </a>
+            </div>
           </div>
         <?php $i++;
         endif;
       else :
         if (!in_array($contact['toUser'], $friend)) :
           $friend[] = $contact['toUser']; ?>
-          <div class="listContainer">
-            <a class = "listGrid" href="<?= URL ?>/friend/chat/<?= $data['username'] ?>/<?= $contact['toUser'] ?>" class="coloring">
-              <div class="pictureContainer">
-                <img src="<?= URL ?>/assets/img/user/<?= $contact['toUser'] ?>/profile/<?= $data['picture'][$i]['picture'] ?>" width="100">
-              </div>
-              <div class = "ppmargin nameContainer">
-               <p><?= $contact['toUser']; ?></p>
-              </div>
-              <div class="deleteContainer">
-                <a href="<?= URL ?>/messenger/delete/<?= $data['username'] ?>/<?= $contact['toUser'] ?>" class="coloring">
-                  Delete
-                </a>
-              </div>
-            </a>
+          <div class="listContainer mainLeftGrid">
+            <div>
+              <a class = "listGrid" href="<?= URL ?>/friend/chat/<?= $data['username'] ?>/<?= $contact['toUser'] ?>" class="coloring">
+                <div class="pictureContainer">
+                  <img src="<?= URL ?>/assets/img/user/<?= $contact['toUser'] ?>/profile/<?= $data['picture'][$i]['picture'] ?>" width="100">
+                </div>
+                <div class = "ppmargin nameContainer">
+                <p><?= $contact['toUser']; ?></p>
+                </div>
+              </a>
+            </div>
+            <div class="operationButtonContainer listChatButtonContainer">
+              <div></div>
+              <a href="<?= URL ?>/messenger/delete/<?= $data['username'] ?>/<?= $contact['fromUser'] ?>">
+                Delete
+              </a>
+            </div>
           </div>
     <?php $i++;
     endif; ?>

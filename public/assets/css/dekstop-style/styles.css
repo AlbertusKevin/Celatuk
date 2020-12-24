@@ -336,6 +336,15 @@
   margin: 0.5rem 0;
 }
 
+.mainLeftGrid {
+  display: grid;
+  grid-template-columns: 1fr 0.3fr;
+}
+.mainLeftGrid .coloringblack {
+  margin: 0;
+  align-self: center;
+}
+
 .listContainer {
   margin: 1rem 1rem 2rem;
   padding: 1rem;
@@ -343,14 +352,30 @@
 }
 .listContainer .listGrid {
   display: grid;
-  grid-template-columns: auto 1fr auto;
-  grid-template-areas: "picture name delete";
+  grid-template-columns: auto 1fr;
+  grid-template-areas: "picture name";
 }
-.listContainer .namecontainer {
+.listContainer .nameContainer {
   grid-area: "name";
 }
-.listContainer .deleteContainer {
-  grid-area: "delete";
+.listContainer .nameContainer p {
+  margin-left: 1rem;
+  margin-bottom: 0.6rem;
+  margin-top: 0;
+  align-self: center;
+}
+.listContainer .nameContainer .username {
+  font-size: 1rem;
+  margin: 0 1rem;
+  color: grey;
+}
+.listContainer .listChatButtonContainer a {
+  margin-right: 0.2rem;
+}
+.listContainer .operationButtonContainer {
+  align-self: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 .listContainer a {
   text-decoration: none;
