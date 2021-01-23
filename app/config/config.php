@@ -1,6 +1,6 @@
 <?php
 //base url
-define('URL', 'http://localhost/socialmedia/public');
+define('URL', 'http://localhost/Celatuk/public');
 
 //db setting
 define('DB_HOST', 'localhost');

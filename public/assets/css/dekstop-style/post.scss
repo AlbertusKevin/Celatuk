@@ -1,0 +1,129 @@
+.postContainer{
+  grid-area: post;
+  h4{
+    padding-left: 1rem;
+  }
+}
+.leftSidebar{
+  grid-area: leftSide;
+  
+}
+.post{
+  margin: 1rem 1rem 2rem 1rem;
+  padding: 1rem;
+  border: 1px solid lightgray;
+}
+.ProfilePicturePostContainer{
+  a{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    text-decoration: none;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid lightgray;
+    .UserNamePost{
+      align-self: center;
+      font-weight: bold;
+      margin-left: 1rem;
+      font-size: 1.25rem;
+      color: indianred;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .ProfilePicturePost{
+      width: 4rem;
+      height: 4rem;
+      object-fit: cover;
+      img{
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+.TextPostContainer{
+  font-size: 1.25rem;
+  letter-spacing: 0.04rem;
+  line-height: 140%;
+  width: 100%;
+  margin: 1rem 0rem;
+}
+.PicturePostContainer{
+  align-self: center;
+  margin-bottom: 1rem;
+  .imagePost{
+    border: 1px solid lightgray;
+    padding: 1rem;
+    img{
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+.buttonLikeBookmarkPostContainer{
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  margin-bottom: 1rem;
+  .likeCounter{
+    margin-left: 1rem;
+  }
+  div{
+    align-self: center;
+    button{
+      background-color: transparent;
+      border: none;
+    }
+  }
+}
+.list-comment{
+  h6{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    color: gray;
+  }
+}
+.commentContainer{
+  margin-top: 1.25rem;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  input{
+    padding: 0.6rem;
+    font-size: 1rem;
+    background-color: transparent;
+    width: 90%;
+  }
+  button{
+    padding: 0.6rem;
+    font-size: 0.8rem;
+    color:white;
+    font-family: 'Montserrat',sans-serif;
+    border: none;
+    background-color: indianred;
+    width: 100%;
+    height: 100%;
+  }
+}
+.CommentBoxes{
+  background-color: rgba(85, 46, 0, 0.05);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  #commentUsername{
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  .commentEdit{
+    margin-top: 0.3rem;
+    color: indianred;
+    text-align: end;
+  }
+}
+.editPost{
+  margin-top: 1rem;
+  a{
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 0.5rem;
+    margin-right: 0.5rem;
+    font-weight: bold;
+    color: indianred;
+  }
+}
